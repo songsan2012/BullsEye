@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     // -- Start Outlets
         @IBOutlet weak var slider: UISlider!
 
+        @IBOutlet weak var targetLabel: UILabel!
     // -- End Outlets
     
     
@@ -29,14 +30,19 @@ class ViewController: UIViewController {
         currentValue = lroundf(slider.value)
         
         // -- Generate a random number
-        targetValue = 1 + Int(arc4random_uniform(100))
-        
+        //targetValue = 1 + Int(arc4random_uniform(100))
+        startNewRound()
+        updateLabels()
     }
 
     // -- Start Outlet actions
         @IBAction func HitMeButtonPressed(_ sender: UIButton) {
             
             showAlert()
+            
+            // -- Start a new round
+            startNewRound()
+            updateLabels()
         }
     
         @IBAction func sliderMoved(_ sender: UISlider) {
@@ -54,7 +60,15 @@ class ViewController: UIViewController {
     
     // -- Start Custom Methods
         func showAlert() {
-            let message = "The value of the silder is: \(currentValue) \nThe target value is \(targetValue)"
+            
+            // -- Calculate the currentValue and targetValue difference
+            var difference: Int = 0
+            
+            
+            difference = abs(currentValue - targetValue)
+            var points = 100 - difference
+            
+            let message = "The value of the silder is: \(currentValue) \nThe target value is \(targetValue). \nThe difference is \(difference). \nYou scored \(points) points."
             
             let alert = UIAlertController(title: "Hello World", message: message, preferredStyle: .alert)
             
@@ -65,6 +79,16 @@ class ViewController: UIViewController {
             present(alert, animated: true, completion: nil)
             
         }
+    
+    func startNewRound() {
+        targetValue = 1 + Int(arc4random_uniform(100))
+//        currentValue = 50
+        slider.value = Float(currentValue)
+    }
+    
+    func updateLabels() {
+        targetLabel.text = String(targetValue)
+    }
     
     // -- End Custom Methods
 }
