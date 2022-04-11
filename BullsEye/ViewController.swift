@@ -12,13 +12,23 @@ class ViewController: UIViewController {
     // -- Start Outlets
         @IBOutlet weak var slider: UISlider!
 
-        @IBOutlet weak var targetLabel: UILabel!
+    @IBOutlet weak var sliderNumber: UILabel!
+    @IBOutlet weak var targetLabel: UILabel!
+        @IBOutlet weak var scoreLbel: UILabel!
+        @IBOutlet weak var roundLabel: UILabel!
+    
+        @IBOutlet weak var startOverButton: UIButton!
+    
     // -- End Outlets
     
     
     // -- Start Variables and Constants
-        var currentValue: Int = 0
-        var targetValue: Int = 0
+        var currentValue = 0
+        var targetValue = 0
+        var score: Int = 0
+        var round = 1
+    
+        var alertTitle: String = ""
     
     // -- End Variables and Constants
     
@@ -31,6 +41,9 @@ class ViewController: UIViewController {
         
         // -- Generate a random number
         //targetValue = 1 + Int(arc4random_uniform(100))
+        // -- Clear all the labels
+        startOver()
+        
         startNewRound()
         updateLabels()
     }
@@ -52,7 +65,15 @@ class ViewController: UIViewController {
             // -- Turn on for debugging
     //        print("The value of the slider is now: \(currentValue)")
             
+            sliderNumber.text = "\(currentValue)"
+            
         }
+    
+        
+    @IBAction func startOverButtonPressed(_ sender: UIButton) {
+        startOver()
+    }
+    
     
     // -- End Outlet actions
     
@@ -67,10 +88,32 @@ class ViewController: UIViewController {
             
             difference = abs(currentValue - targetValue)
             var points = 100 - difference
+            score += points
+            round += 1
+            
             
             let message = "The value of the silder is: \(currentValue) \nThe target value is \(targetValue). \nThe difference is \(difference). \nYou scored \(points) points."
             
-            let alert = UIAlertController(title: "Hello World", message: message, preferredStyle: .alert)
+            // Display the title depends on how close the hit
+            
+            switch difference {
+            case 0:
+                alertTitle = "Perfect!"
+                
+                // -- Give the player an extra 100 points
+                points += 100
+            case 1...5:
+                alertTitle = "You almost had it!"
+            case 6...10:
+                alertTitle = "Pretty good!"
+            default:
+                alertTitle = "Not even close..."
+            }
+            
+            
+            
+            
+            let alert = UIAlertController(title: alertTitle, message: message, preferredStyle: .alert)
             
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             
@@ -86,8 +129,18 @@ class ViewController: UIViewController {
         slider.value = Float(currentValue)
     }
     
+    func startOver() {
+        
+        score = 0
+        round = 1
+        
+        updateLabels()
+    }
+    
     func updateLabels() {
         targetLabel.text = String(targetValue)
+        scoreLbel.text = "\(score)"
+        roundLabel.text = "\(round)"
     }
     
     // -- End Custom Methods

@@ -27,9 +27,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W9L-Hz-aCG">
-                                <rect key="frame" x="480" y="36" width="29" height="28"/>
+                                <rect key="frame" x="478" y="36" width="29" height="28"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="29" id="45w-xR-qUp"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="28" id="CPg-Rb-htp"/>
                                     <constraint firstAttribute="height" constant="28" id="T8A-sY-vWz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -84,6 +85,9 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Start Over"/>
+                                <connections>
+                                    <action selector="startOverButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4bY-Fu-ug5"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Score:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOd-1M-dBw">
                                 <rect key="frame" x="201" y="238" width="57" height="35"/>
@@ -133,7 +137,17 @@
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system"/>
+                                <connections>
+                                    <segue destination="qly-XL-TIm" kind="presentation" id="wvZ-xK-ntW"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XoS-6P-r33">
+                                <rect key="frame" x="543" y="36" width="56" height="28"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -156,29 +170,90 @@
                             <constraint firstItem="W9L-Hz-aCG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="V9I-wU-sXD"/>
                             <constraint firstItem="yhY-4A-pT7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="VPK-cl-NWJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Gcf-qr-zos" secondAttribute="trailing" constant="219" id="XeE-Jg-ekP"/>
+                            <constraint firstItem="W9L-Hz-aCG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="36" id="XhQ-XL-0Vo"/>
                             <constraint firstItem="Gcf-qr-zos" firstAttribute="top" secondItem="IS3-W5-BBN" secondAttribute="bottom" constant="33" id="XhU-1h-j4w"/>
-                            <constraint firstItem="W9L-Hz-aCG" firstAttribute="leading" secondItem="yhY-4A-pT7" secondAttribute="trailing" constant="150" id="ZH4-4v-0hF"/>
                             <constraint firstItem="tWr-wp-SYW" firstAttribute="leading" secondItem="OOd-1M-dBw" secondAttribute="trailing" constant="3" id="a5z-m6-ycJ"/>
                             <constraint firstItem="ZXv-ae-T9f" firstAttribute="top" secondItem="IS3-W5-BBN" secondAttribute="bottom" constant="119" id="b4Q-5V-ln9"/>
                             <constraint firstItem="yhY-4A-pT7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="160" id="bAN-6o-cxy"/>
                             <constraint firstItem="4sZ-IS-PJq" firstAttribute="leading" secondItem="ZXv-ae-T9f" secondAttribute="trailing" constant="3" id="bVe-wM-jV8"/>
-                            <constraint firstItem="W9L-Hz-aCG" firstAttribute="leading" secondItem="yhY-4A-pT7" secondAttribute="trailing" constant="8" id="cNQ-1r-QYT"/>
                             <constraint firstItem="ttE-f4-0m6" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="90" id="f1S-GH-EWn"/>
                             <constraint firstItem="OOd-1M-dBw" firstAttribute="leading" secondItem="4cv-du-0Dx" secondAttribute="trailing" constant="46" id="hzr-Ey-Vin"/>
+                            <constraint firstItem="W9L-Hz-aCG" firstAttribute="leading" secondItem="yhY-4A-pT7" secondAttribute="trailing" constant="6" id="nXA-at-GfS"/>
                         </constraints>
                     </view>
+                    <nil key="simulatedTopBarMetrics"/>
                     <connections>
+                        <outlet property="roundLabel" destination="4sZ-IS-PJq" id="PPl-Xn-zi6"/>
+                        <outlet property="scoreLbel" destination="tWr-wp-SYW" id="dOQ-TV-x3Y"/>
                         <outlet property="slider" destination="IS3-W5-BBN" id="hZS-ra-epc"/>
+                        <outlet property="sliderNumber" destination="XoS-6P-r33" id="ieT-ah-1eM"/>
+                        <outlet property="startOverButton" destination="4cv-du-0Dx" id="gJ3-aU-Et0"/>
                         <outlet property="targetLabel" destination="W9L-Hz-aCG" id="yiv-7E-zzH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.74647887323944" y="69.375"/>
+            <point key="canvasLocation" x="31.934032983508249" y="68"/>
+        </scene>
+        <!--About View Controller-->
+        <scene sceneID="Mqb-zO-N0c">
+            <objects>
+                <viewController id="qly-XL-TIm" customClass="AboutViewController" customModule="BullsEye" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xTB-Bc-aFi">
+                        <rect key="frame" x="0.0" y="0.0" width="667" height="375"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rsL-0Q-rzU">
+                                <rect key="frame" x="296" y="255" width="75" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="Sa1-0C-Wy0"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Close"/>
+                                <connections>
+                                    <action selector="closeButtonPressed:" destination="qly-XL-TIm" eventType="touchUpInside" id="TQa-Ih-iwP"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8Sr-ri-28v">
+                                <rect key="frame" x="20" y="20" width="627" height="195"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="195" id="TvT-Rs-NCn"/>
+                                </constraints>
+                                <string key="text">*** Bull's Eye ***
+
+Welcome to the awesome game of Bull's Eye where you can win points and fame by dragging a slider.
+
+Your goal is to place the slider as close as possible to the target value. The closer you are, the more points you score. Enjoy!
+</string>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="fR6-41-dfs"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="rsL-0Q-rzU" firstAttribute="leading" secondItem="fR6-41-dfs" secondAttribute="leading" constant="296" id="6tH-KK-498"/>
+                            <constraint firstItem="fR6-41-dfs" firstAttribute="trailing" secondItem="8Sr-ri-28v" secondAttribute="trailing" constant="20" id="7eW-Uf-MgF"/>
+                            <constraint firstItem="8Sr-ri-28v" firstAttribute="top" secondItem="fR6-41-dfs" secondAttribute="top" constant="20" id="Flf-4I-AbO"/>
+                            <constraint firstItem="8Sr-ri-28v" firstAttribute="leading" secondItem="fR6-41-dfs" secondAttribute="leading" constant="20" id="MVH-hr-RzJ"/>
+                            <constraint firstItem="fR6-41-dfs" firstAttribute="trailing" secondItem="rsL-0Q-rzU" secondAttribute="trailing" constant="296" id="XeQ-UV-ThD"/>
+                            <constraint firstItem="rsL-0Q-rzU" firstAttribute="top" secondItem="8Sr-ri-28v" secondAttribute="bottom" constant="40" id="i6W-l4-Ofp"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="3tH-2t-ho1"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hZi-1N-NXg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="713.79310344827593" y="68"/>
         </scene>
     </scenes>
     <resources>
         <image name="info.circle" catalog="system" width="128" height="121"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

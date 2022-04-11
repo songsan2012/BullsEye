@@ -13,6 +13,7 @@
 		E4C0F4FC28034B3C00B6CF9A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C0F4FA28034B3C00B6CF9A /* Main.storyboard */; };
 		E4C0F4FE28034B3E00B6CF9A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4C0F4FD28034B3E00B6CF9A /* Assets.xcassets */; };
 		E4C0F50128034B3E00B6CF9A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4C0F4FF28034B3E00B6CF9A /* LaunchScreen.storyboard */; };
+		E4C0F50928039AB700B6CF9A /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C0F50828039AB700B6CF9A /* AboutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,7 @@
 		E4C0F4FD28034B3E00B6CF9A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E4C0F50028034B3E00B6CF9A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4C0F50228034B3E00B6CF9A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E4C0F50828039AB700B6CF9A /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 		E4C0F4F328034B3C00B6CF9A /* BullsEye */ = {
 			isa = PBXGroup;
 			children = (
+				E4C0F50828039AB700B6CF9A /* AboutViewController.swift */,
 				E4C0F4F428034B3C00B6CF9A /* AppDelegate.swift */,
 				E4C0F4F628034B3C00B6CF9A /* SceneDelegate.swift */,
 				E4C0F4F828034B3C00B6CF9A /* ViewController.swift */,
@@ -140,6 +143,7 @@
 			files = (
 				E4C0F4F928034B3C00B6CF9A /* ViewController.swift in Sources */,
 				E4C0F4F528034B3C00B6CF9A /* AppDelegate.swift in Sources */,
+				E4C0F50928039AB700B6CF9A /* AboutViewController.swift in Sources */,
 				E4C0F4F728034B3C00B6CF9A /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
